@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import AuthProvider from "@/components/AuthProvider";
@@ -15,21 +15,22 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  themeColor: "#3b82f6",
+};
+
 export const metadata: Metadata = {
   title: "Premium POS - Point of Sale",
   description: "Aplikasi kasir & manajemen keuangan untuk bisnis modern",
   manifest: "/manifest.json",
-  themeColor: "#3b82f6",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
     title: "PremiumPOS",
-  },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-    userScalable: false,
   },
   icons: {
     apple: [
@@ -43,6 +44,7 @@ export const metadata: Metadata = {
     "msapplication-TileImage": "/icons/icon-192x192.png",
   },
 };
+
 
 export default function RootLayout({
   children,
