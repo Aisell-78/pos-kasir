@@ -2,7 +2,14 @@
 
 import { useState, useEffect, useMemo } from 'react';
 
-// Fix for Next.js build error: Bluetooth types are not in standard TS library
+// Fix for Next.js/TypeScript build: Extend Navigator & declare Bluetooth types
+declare global {
+  interface Navigator {
+    bluetooth: {
+      requestDevice(options: object): Promise<any>;
+    };
+  }
+}
 type BluetoothDevice = any;
 type BluetoothRemoteGATTCharacteristic = any;
 import axios from 'axios';
