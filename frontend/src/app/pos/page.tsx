@@ -1,6 +1,10 @@
 "use client";
 
 import { useState, useEffect, useMemo } from 'react';
+
+// Fix for Next.js build error: Bluetooth types are not in standard TS library
+type BluetoothDevice = any;
+type BluetoothRemoteGATTCharacteristic = any;
 import axios from 'axios';
 import { ShoppingCart, Plus, Minus, Banknote, CreditCard, Printer, Bluetooth, Utensils } from 'lucide-react';
 import { useAuth } from '@/components/AuthProvider';
