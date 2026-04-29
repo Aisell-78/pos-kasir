@@ -1,0 +1,160 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --card-bg: rgba(255, 255, 255, 0.7);
+  --card-border: rgba(203, 213, 225, 0.5);
+  --input-bg: #ffffff;
+  --input-border: #cbd5e1;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --accent-blue: #3b82f6;
+  --accent-green: #22c55e;
+  --accent-red: #ef4444;
+  --accent-violet: #8b5cf6;
+  --mesh-opacity: 0.4;
+}
+
+.dark {
+  --background: #0d1117;
+  --foreground: #f8fafc;
+  --card-bg: rgba(22, 33, 52, 0.8);
+  --card-border: rgba(71, 85, 105, 0.4);
+  --input-bg: #0d1117;
+  --input-border: #334155;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --accent-blue: #60a5fa;
+  --accent-green: #4ade80;
+  --accent-red: #f87171;
+  --accent-violet: #a78bfa;
+  --mesh-opacity: 0.1;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+body {
+  color: var(--foreground);
+  background-color: var(--background);
+  background-image:
+    radial-gradient(ellipse at 0% 0%, rgba(59, 130, 246, var(--mesh-opacity)) 0%, transparent 55%),
+    radial-gradient(ellipse at 100% 100%, rgba(99, 102, 241, var(--mesh-opacity)) 0%, transparent 55%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ─── Glass Panel ─── */
+.glass-panel {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--card-border);
+  box-shadow:
+    0 8px 32px -8px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  border-radius: 1.25rem;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.dark .glass-panel {
+  box-shadow: 0 8px 32px -8px rgba(0, 0, 0, 0.5);
+}
+
+/* ─── Interactive Glass Button ─── */
+.glass-btn {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+  border-radius: 1rem;
+  transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 4px 16px -4px rgba(0, 0, 0, 0.1);
+  color: var(--text-primary);
+}
+
+.glass-btn:hover {
+  background: var(--input-bg);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px -6px rgba(0, 0, 0, 0.15);
+  border-color: var(--accent-blue);
+}
+
+.dark .glass-btn:hover {
+  box-shadow: 0 14px 28px -6px rgba(0, 0, 0, 0.45);
+}
+
+/* ─── Metric Cards ─── */
+.glass-card-green {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.12) 0%, rgba(34, 197, 94, 0.04) 100%);
+  border: 1px solid rgba(34, 197, 94, 0.22);
+}
+.glass-card-red {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.12) 0%, rgba(239, 68, 68, 0.04) 100%);
+  border: 1px solid rgba(239, 68, 68, 0.22);
+}
+.glass-card-blue {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.12) 0%, rgba(59, 130, 246, 0.04) 100%);
+  border: 1px solid rgba(59, 130, 246, 0.22);
+}
+
+/* ─── Input fields ─── */
+input, select, textarea {
+  background: var(--input-bg) !important;
+  border-color: var(--input-border) !important;
+  color: var(--text-primary) !important;
+  transition: all 0.3s ease;
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--text-secondary) !important;
+  opacity: 0.6;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none !important;
+  border-color: var(--accent-blue) !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12) !important;
+}
+
+/* ─── Text Colors ─── */
+.text-slate-800 { color: var(--text-primary) !important; }
+.text-slate-700 { color: var(--text-primary) !important; opacity: 0.9; }
+.text-slate-600 { color: var(--text-secondary) !important; }
+.text-slate-500 { color: var(--text-secondary) !important; opacity: 0.8; }
+.text-slate-400 { color: var(--text-secondary) !important; opacity: 0.6; }
+
+.text-blue-600   { color: var(--accent-blue) !important; }
+.text-green-600  { color: var(--accent-green) !important; }
+.text-green-700  { color: var(--accent-green) !important; }
+.text-red-600    { color: var(--accent-red) !important; }
+.text-red-700    { color: var(--accent-red) !important; }
+.text-violet-600 { color: var(--accent-violet) !important; }
+.text-violet-500 { color: var(--accent-violet) !important; }
+
+/* ─── Background Utilities ─── */
+.bg-white\/60, .bg-white\/70, .bg-white\/80, .bg-white\/40, .bg-white\/50, .bg-white\/85 {
+  background: var(--card-bg) !important;
+}
+
+.border-white\/60, .border-white\/80, .border-white\/40, .border-white\/30 {
+  border-color: var(--card-border) !important;
+}
+
+/* Sidebar & mobile bar */
+.md\:flex.fixed, .bg-white\/70.backdrop-blur-xl, .bg-white\/85.backdrop-blur-2xl {
+  background: var(--card-bg) !important;
+}
+
+/* ─── Sleek Scrollbar ─── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--text-secondary);
+  border-radius: 10px;
+  opacity: 0.5;
+}

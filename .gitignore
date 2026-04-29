@@ -1,0 +1,7 @@
+# Root gitignore
+.DS_Store
+.env
+.env.local
+.env.*.local
+
+# Subdirectories will handle their own via nested .gitignore
