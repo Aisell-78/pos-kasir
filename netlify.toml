@@ -1,0 +1,5 @@
+[build]
+  # Mengarahkan Netlify untuk menggunakan folder frontend
+  base = "frontend"
+  command = "npm run build"
+  publish = ".next"
